@@ -24,7 +24,7 @@ import '@ionic/vue/css/display.css';
 import './theme/variables.css';
 
 /* Tailwind style */
-import './index.css'
+import './main.css'
 
 const app = createApp(App)
   .use(IonicVue)
