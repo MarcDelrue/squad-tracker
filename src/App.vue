@@ -73,7 +73,7 @@ export default defineComponent({
     
     const route = useRoute();
     
-    return { 
+    return {
       selectedIndex,
       appPages,
       isSelected: (url: string) => url === route.path ? 'selected' : ''
