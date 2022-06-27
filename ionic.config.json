@@ -1,7 +1,7 @@
 {
-  "name": "squad-tracker-app",
+  "name": "Squad Tracker",
   "integrations": {
     "capacitor": {}
   },
-  "type": "vue"
+  "type": "angular"
 }
