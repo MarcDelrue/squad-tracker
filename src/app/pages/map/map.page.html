@@ -13,16 +13,30 @@
       <ion-title size="large">Map</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ng-container *ngIf="coords">
+  <ng-container *ngIf="center">
     <ion-label>
-      Longitude: {{ coords.longitude }}
+      Longitude: {{ center.lng }}
     </ion-label>
     <ion-label>
-      Latitude: {{ coords.latitude }}
+      Latitude: {{ center.lat }}
     </ion-label>
     <ion-label>
-      Accuracy: {{ coords.accuracy }}
+      Accuracy: {{ accuracy }}
     </ion-label>
+    <google-map
+      [center]="center"
+      [options]="options"
+      [zoom]="zoom"
+      width="100%"
+    >
+      <map-marker
+        [position]="playerMarker.position"
+        [icon]="playerMarker.icon"
+      >
+      </map-marker>
+    </google-map>
+    <ion-button (click)="recenterMap()">
+      Center camera
+    </ion-button>
   </ng-container>
-  <google-map></google-map>
 </ion-content>
