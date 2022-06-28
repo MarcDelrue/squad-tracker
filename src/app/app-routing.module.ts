@@ -6,6 +6,7 @@ const routes: Routes = [
   //   path: ':id',
   //   loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   // },
+  { path: '',   redirectTo: '/user', pathMatch: 'full' },
   {
     path: 'user',
     loadChildren: () => import('./pages/user/user.module').then( m => m.UserPageModule)
@@ -14,7 +15,6 @@ const routes: Routes = [
     path: 'squad',
     loadChildren: () => import('./pages/squad/squad.module').then( m => m.SquadPageModule)
   },
-  { path: '',   redirectTo: '/user', pathMatch: 'full' },
   {
     path: 'map',
     loadChildren: () => import('./pages/map/map.module').then( m => m.MapPageModule)
