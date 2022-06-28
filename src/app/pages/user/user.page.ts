@@ -22,6 +22,7 @@ export class UserPage implements OnInit {
     {name: 'Radio', value: 'radio'},
     {name: 'Engineer', value: 'engineer'},
     {name: 'Gunner', value: 'gunner'},
+    {name: 'Medic', value: 'medic'},
     {name: 'Leader', value: 'leader'},
   ]
 
