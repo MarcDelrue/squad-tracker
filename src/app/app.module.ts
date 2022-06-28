@@ -9,10 +9,11 @@ import {AppRoutingModule} from './app-routing.module';
 
 import {Geolocation} from '@awesome-cordova-plugins/geolocation/ngx';
 import {DeviceOrientation} from '@awesome-cordova-plugins/device-orientation/ngx';
+import {GoogleMapsModule} from '@angular/google-maps'
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, GoogleMapsModule],
   providers: [{provide: RouteReuseStrategy, useClass: IonicRouteStrategy}, Geolocation, DeviceOrientation],
   bootstrap: [AppComponent],
 })
