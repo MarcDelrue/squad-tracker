@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from '../../services/users.service';
+import { UserModel } from '../../models/user-model';
+import { Roles } from '../../models/roles';
+import { Ranks } from '../../models/ranks';
 
 @Component({
   selector: 'app-user',
@@ -6,27 +10,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.page.scss'],
 })
 export class UserPage implements OnInit {
+  constructor(private userService: UsersService) {}
 
-  constructor() { }
+  MarcID = '62b2029da72fc5339dedae9b';
+  userData: UserModel;
 
-  ranks = [
-    {name: 'Recruit', value: 'Rct'},
-    {name: 'Specialist', value: 'Spe'},
-    {name: 'Corporal', value: 'Cpl'},
-    {name: 'Sergeant', value: 'Sgt'},
-    {name: 'Sergeant Major', value: 'Sgt.M'},
-  ]
+  ranks = Ranks;
 
-  roles = [
-    {name: 'Soldier', value: 'soldier'},
-    {name: 'Radio', value: 'radio'},
-    {name: 'Engineer', value: 'engineer'},
-    {name: 'Gunner', value: 'gunner'},
-    {name: 'Medic', value: 'medic'},
-    {name: 'Leader', value: 'leader'},
-  ]
+  roles = Roles;
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.userData = await this.userService.getUserById(this.MarcID);
+    console.log(this.userData);
   }
 
+  async saveChanges() {
+    this.userData = await this.userService.updateUserById(
+      this.MarcID,
+      this.userData
+    );
+    console.log(this.userData);
+  }
 }

@@ -15,25 +15,34 @@
   </ion-header>
 
   <div>
-    <ion-list>
+    <ion-list *ngIf="userData">
       <ion-item>
         <ion-label>Select Rank</ion-label>
-        <ion-select>
-          <ion-select-option *ngFor="let rank of ranks" [value]="rank.value">
-            {{ rank.name }}
+        <ion-select [(ngModel)]="userData.rank">
+          <ion-select-option
+            *ngFor="let rank of ranks | keyvalue"
+            [value]="rank.value">
+            {{ rank.value }}
           </ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label>Select Role</ion-label>
-        <ion-select multiple>
-          <ion-select-option *ngFor="let role of roles" [value]="role.value">{{ role.name }}</ion-select-option>
+        <ion-select [multiple]="true" [(ngModel)]="userData.roles">
+          <ion-select-option
+            *ngFor="let role of roles | keyvalue"
+            [value]="role.value">
+            {{ role.value }}
+          </ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label>Field Name</ion-label>
-        <ion-input class="ion-text-right"></ion-input>
+        <ion-input class="ion-text-right" [value]="userData.name"></ion-input>
       </ion-item>
+      <ion-button expand="block" (click)="saveChanges()">
+        Update
+      </ion-button>
     </ion-list>
   </div>
 </ion-content>
