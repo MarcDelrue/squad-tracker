@@ -21,7 +21,6 @@ export class UserPage implements OnInit {
 
   async ngOnInit() {
     this.userData = await this.userService.getUserById(this.MarcID);
-    console.log(this.userData);
   }
 
   async saveChanges() {
@@ -31,4 +30,6 @@ export class UserPage implements OnInit {
     );
     console.log(this.userData);
   }
+
+  unsorted(): void { }
 }

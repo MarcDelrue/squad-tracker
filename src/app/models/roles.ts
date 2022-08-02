@@ -1,8 +1,8 @@
-export const Roles = {
-  soldier: 'Soldier',
-  radio: 'Radio',
-  engineer: 'Engineer',
-  gunner: 'Gunner',
-  medic: 'Medic',
-  leader: 'Leader',
-};
+export const Roles = [
+  'Soldier',
+  'Radio',
+  'Engineer',
+  'Gunner',
+  'Medic',
+  'Leader'
+]

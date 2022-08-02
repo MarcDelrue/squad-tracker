@@ -20,9 +20,9 @@
         <ion-label>Select Rank</ion-label>
         <ion-select [(ngModel)]="userData.rank">
           <ion-select-option
-            *ngFor="let rank of ranks | keyvalue"
-            [value]="rank.value">
-            {{ rank.value }}
+            *ngFor="let rank of ranks; let i = index"
+            [value]="i">
+            {{ rank }}
           </ion-select-option>
         </ion-select>
       </ion-item>
@@ -30,9 +30,9 @@
         <ion-label>Select Role</ion-label>
         <ion-select [multiple]="true" [(ngModel)]="userData.roles">
           <ion-select-option
-            *ngFor="let role of roles | keyvalue"
-            [value]="role.value">
-            {{ role.value }}
+            *ngFor="let role of roles;  let i = index"
+            [value]="i">
+            {{ role }}
           </ion-select-option>
         </ion-select>
       </ion-item>
