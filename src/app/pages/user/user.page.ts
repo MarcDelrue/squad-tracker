@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../../services/users.service';
 import { UserModel } from '../../models/user-model';
-import { Roles } from '../../models/roles';
-import { Ranks } from '../../models/ranks';
+import {UsersService} from "../../services/users/users.service";
+import {Ranks} from "../../models/globals/ranks";
+import {Roles} from "../../models/globals/roles";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-user',
@@ -12,7 +13,7 @@ import { Ranks } from '../../models/ranks';
 export class UserPage implements OnInit {
   constructor(private userService: UsersService) {}
 
-  MarcID = '62b2029da72fc5339dedae9b';
+  MarcID = environment.marcId;
   userData: UserModel;
 
   ranks = Ranks;
