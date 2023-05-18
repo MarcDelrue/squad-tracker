@@ -21,7 +21,7 @@ export class UserPage implements OnInit {
   roles = Roles;
 
   async ngOnInit() {
-    this.userData = await this.userService.getUserById(this.MarcID);
+    this.userData = this.userService.user;
   }
 
   async saveChanges() {

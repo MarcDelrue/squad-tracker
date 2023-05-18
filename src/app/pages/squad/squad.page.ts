@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {NavController} from "@ionic/angular";
 
 @Component({
   selector: 'app-squad',
@@ -8,18 +7,10 @@ import {NavController} from "@ionic/angular";
 })
 export class SquadPage implements OnInit {
 
-  constructor(private nav: NavController) {
+  constructor() {
   }
 
   ngOnInit() {
-  }
-
-  goToFind() {
-    this.nav.navigateForward('squad/find');
-  }
-
-  goToCreate() {
-    this.nav.navigateForward('squad/create');
   }
 
 }

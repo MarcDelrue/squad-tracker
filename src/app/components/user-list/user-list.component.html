@@ -1,0 +1,6 @@
+<ion-list lines="full">
+  <ion-item *ngFor="let user of users">
+    <ion-label slot="start">{{ user.name }} ({{ ranks[user.rank] }})</ion-label>
+    <ion-label slot="end" *ngFor="let role of user.roles">{{ roles[role] }}</ion-label>
+  </ion-item>
+</ion-list>

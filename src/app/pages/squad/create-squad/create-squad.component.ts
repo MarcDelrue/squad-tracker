@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SquadsService} from "../../../services/squads/squads.service";
+import {SquadModel} from "../../../models/squad-model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-squad',
@@ -8,16 +10,19 @@ import {SquadsService} from "../../../services/squads/squads.service";
 })
 export class CreateSquadComponent implements OnInit {
 
-  constructor(private squad: SquadsService) {
+  constructor(private squad: SquadsService, private router: Router) {
   }
 
-  squadName: string = 'New Squad';
-  qr = '64660e36ab83519446a3fd10';
+  newSquad: Partial<SquadModel> = {
+    name: 'New Squad',
+    maxUser: 4
+  }
 
   ngOnInit() {
-    // this.squad.createSquad(this.squadName).then((res) => {
-    //   console.log(res);
-    // });
-    // 64660e36ab83519446a3fd10
+  }
+
+  async createSquad() {
+    this.newSquad = await this.squad.createSquad(this.newSquad)
+    this.router.navigate(['squad/64664dda5e2a844f98997b08'], {state: {squad: this.newSquad}})
   }
 }

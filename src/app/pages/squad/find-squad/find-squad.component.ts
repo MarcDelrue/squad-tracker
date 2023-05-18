@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {BarcodeScanner} from "@capacitor-community/barcode-scanner";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-find-squad',
@@ -7,6 +8,9 @@ import {BarcodeScanner} from "@capacitor-community/barcode-scanner";
   styleUrls: ['./find-squad.component.scss'],
 })
 export class FindSquadComponent  implements OnInit {
+
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
     this.scanQRCode()
@@ -26,6 +30,7 @@ export class FindSquadComponent  implements OnInit {
     // if the result has content
     if (result.hasContent) {
       console.log(result.content); // log the raw scanned content
+      this.router.navigate(['/squads/' + result.content])
     }
   }
 

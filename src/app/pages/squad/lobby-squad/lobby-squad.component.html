@@ -1,3 +1,33 @@
-<p>
-  lobby-squad works!
-</p>
+<ng-container *ngIf="squad">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="squad"></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{ squad.name }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <div  class="m-auto w-fit" >
+      <qrcode [qrdata]="squad._id" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+    </div>
+    <app-user-list [users]="squad.users"></app-user-list>
+  </ion-content>
+  <ion-footer>
+    <ion-toolbar>
+      <div *ngIf="hasJoined" class="justify-center flex space-x-2">
+        <ion-button fill="clear" color="danger" (click)="deleteSquad()">
+          Delete Squad
+        </ion-button>
+        <ion-button>
+          Launch Mission
+        </ion-button>
+      </div>
+      <div *ngIf="!hasJoined" class="justify-center flex">
+        <ion-button (click)="joinSquad()">
+          Join
+        </ion-button>
+      </div>
+    </ion-toolbar>
+  </ion-footer>
+</ng-container>

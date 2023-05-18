@@ -7,8 +7,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding">
-  <ion-input [(ngModel)]="squadName" fill="outline" shape="round" label="Insert Squad name" label-placement="floating"></ion-input>
-  <div  class="m-auto w-fit" >
-    <qrcode [qrdata]="qr" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
-  </div>
+  <ion-input [(ngModel)]="newSquad.name" fill="outline" shape="round" label="Insert squad name" label-placement="floating"></ion-input>
+  <ion-input [min]="1" [max]="15" type="number" [(ngModel)]="newSquad.maxUser" fill="outline" shape="round" label="Insert squad size" label-placement="floating"></ion-input>
+  <ion-button expand="block" (click)="createSquad()">Create</ion-button>
 </ion-content>

@@ -11,6 +11,7 @@ import {CreateSquadComponent} from "./create-squad/create-squad.component";
 import {QRCodeModule} from "angularx-qrcode";
 import {FindSquadComponent} from "./find-squad/find-squad.component";
 import {LobbySquadComponent} from "./lobby-squad/lobby-squad.component";
+import {ComponentsModule} from "../../components/components.module";
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import {LobbySquadComponent} from "./lobby-squad/lobby-squad.component";
     FormsModule,
     IonicModule,
     SquadPageRoutingModule,
-    QRCodeModule
+    QRCodeModule,
+    ComponentsModule
   ],
   declarations: [SquadPage, CreateSquadComponent, FindSquadComponent, LobbySquadComponent]
 })

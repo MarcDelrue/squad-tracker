@@ -13,6 +13,7 @@ export class UsersService {
   constructor(private http: HttpClient) {}
 
   apiURL = environment.apiUrl;
+  user: UserModel;
 
   getUsers(): Promise<UserModel[]> {
     return lastValueFrom(this.http.get<UserModel[]>(this.apiURL + USERS_ROUTE));
@@ -26,5 +27,12 @@ export class UsersService {
     console.log(newData);
     return lastValueFrom(this.http
       .patch<UserModel>(this.apiURL + USERS_ROUTE + id, newData));
+  }
+
+
+  async setCurrentUser(id: string) {
+    if(!this.user) {
+      this.user = await this.getUserById(id);
+    }
   }
 }

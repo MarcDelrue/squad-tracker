@@ -15,12 +15,12 @@
   </ion-header>
 
   <div>
-    <ion-button expand="block" (click)="goToFind()">
+    <ion-button expand="block" [routerLink]="['find']">
       Find Squad
     </ion-button>
   </div>
 <div>
-  <ion-button expand="block" (click)="goToCreate()">
+  <ion-button expand="block" [routerLink]="['create']">
     Create Squad
   </ion-button>
 </div>
