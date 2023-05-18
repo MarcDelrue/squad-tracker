@@ -1,11 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {
-  Geolocation,
-} from '@awesome-cordova-plugins/geolocation/ngx';
-import {
-  DeviceOrientation,
-  DeviceOrientationCompassHeading,
-} from '@awesome-cordova-plugins/device-orientation/ngx';
+import { Geolocation } from '@capacitor/geolocation';
 import {GoogleMap} from "@angular/google-maps";
 import {environment} from "../../../environments/environment";
 import {UsersService} from "../../services/users/users.service";
@@ -17,8 +11,6 @@ import {UsersService} from "../../services/users/users.service";
 })
 export class MapPage implements OnInit {
   constructor(
-    private geolocation: Geolocation,
-    private deviceOrientation: DeviceOrientation,
     private userService: UsersService
   ) {
   }
@@ -36,7 +28,7 @@ export class MapPage implements OnInit {
   accuracy: number;
 
   ngOnInit() {
-    this.geolocation
+    Geolocation
       .getCurrentPosition()
       .then((resp) => {
         this.setMapData(resp);
@@ -44,11 +36,6 @@ export class MapPage implements OnInit {
       .catch((error) => {
         console.log('Error getting location', error);
       });
-
-    this.deviceOrientation.getCurrentHeading().then(
-      (data: DeviceOrientationCompassHeading) => console.log(data),
-      (error: any) => console.log(error)
-    );
   }
 
   setMapData(resp) {
