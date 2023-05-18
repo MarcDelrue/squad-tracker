@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="squad"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Create squad</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-input [(ngModel)]="squadName" fill="outline" shape="round" label="Insert Squad name" label-placement="floating"></ion-input>
+  <div  class="m-auto w-fit" >
+    <qrcode [qrdata]="qr" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+  </div>
+</ion-content>

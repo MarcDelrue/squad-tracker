@@ -18,7 +18,7 @@
     <ion-list *ngIf="userData">
       <ion-item>
         <ion-label>Select Rank</ion-label>
-        <ion-select [(ngModel)]="userData.rank">
+        <ion-select label="rank" [(ngModel)]="userData.rank">
           <ion-select-option
             *ngFor="let rank of ranks; let i = index"
             [value]="i">
@@ -28,7 +28,7 @@
       </ion-item>
       <ion-item>
         <ion-label>Select Role</ion-label>
-        <ion-select [multiple]="true" [(ngModel)]="userData.roles">
+        <ion-select label="role" [multiple]="true" [(ngModel)]="userData.roles">
           <ion-select-option
             *ngFor="let role of roles;  let i = index"
             [value]="i">
@@ -38,7 +38,7 @@
       </ion-item>
       <ion-item>
         <ion-label>Field Name</ion-label>
-        <ion-input class="ion-text-right" [value]="userData.name"></ion-input>
+        <ion-input label="name" class="ion-text-right" [value]="userData.name"></ion-input>
       </ion-item>
       <ion-button expand="block" (click)="saveChanges()">
         Update
